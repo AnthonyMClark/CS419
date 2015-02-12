@@ -1,0 +1,19 @@
+# A default .procmailrc file
+# See http://engr.oregonstate.edu/computing/email/90
+
+# Include the standard spam filter
+INCLUDERC=/usr/local/etc/procmail/standard.rc
+
+####################################################
+# (Optionally) Add your own rules after this line
+####################################################
+#
+LOGFILE=/nfs/stak/students/c/clarkant/tempme/temp/procmail.log
+VERBOSE=YES
+LOGABSTRACT=YES
+##FIltering emails:
+:0 fw
+#* ^From:.*clarkant@onid.oregonstate.edu
+* ^From:.*@onid.oregonstate.edu
+| /usr/bin/python ~/tempme/temp/Group8/emailParser.py
+
